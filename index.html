@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipango World | Curadoria de Compras Inteligentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS - Identidade Visual Chipango World */
+        :root {
+            --primary-color: #008080; /* Verde Petróleo */
+            --dark-color: #1a1a1a;
+            --light-bg: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body { background-color: var(--light-bg); color: var(--dark-color); line-height: 1.6; }
+
+        header { background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--dark-color); font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,128,128,0.8), rgba(0,128,128,0.8)), url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80') center/cover; color: var(--white); padding: 80px 5%; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-inline: auto; }
+        .cta-btn { background: var(--white); color: var(--primary-color); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .cta-btn:hover { background: var(--dark-color); color: var(--white); }
+
+        /* Categorias */
+        .categories { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .cat-card { background: var(--white); padding: 20px; border-radius: 8px; text-align: center; cursor: pointer; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .cat-card:hover { border-bottom: 4px solid var(--primary-color); transform: translateY(-5px); }
+        .cat-card i { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        /* Grid de Produtos */
+        .products { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .product-info h3 { margin-bottom: 10px; font-size: 1.1rem; }
+        .tag { background: #e0f2f2; color: var(--primary-color); font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; font-weight: bold; }
+        
+        .affiliate-link { display: block; text-align: center; background: var(--primary-color); color: var(--white); padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: bold; transition: 0.3s; }
+        .affiliate-link:hover { opacity: 0.9; }
+
+        footer { background: var(--dark-color); color: var(--white); padding: 40px 5%; text-align: center; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-globe"></i> CHIPANGO WORLD
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#tecnologia">Tecnologia</a></li>
+                <li><a href="#setup">Setup</a></li>
+                <li><a href="#desporto">Desporto</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Curadoria Inteligente de Produtos</h1>
+        <p>Selecionamos o melhor da tecnologia, produtividade e desporto para que você compre com segurança e qualidade.</p>
+        <a href="#guia" class="cta-btn">Baixar Guia de Compras Grátis</a>
+    </section>
+
+    <div class="categories">
+        <div class="cat-card"><i class="fas fa-microchip"></i><h3>Gadgets</h3></div>
+        <div class="cat-card"><i class="fas fa-laptop"></i><h3>Setup</h3></div>
+        <div class="cat-card"><i class="fas fa-fire"></i><h3>Achados</h3></div>
+        <div class="cat-card"><i class="fas fa-fist-raised"></i><h3>Desporto</h3></div>
+    </div>
+
+    <main class="products">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1552072805-2a9039d00e57?auto=format&fit=crop&q=80" alt="Kimono BJJ">
+            <div class="product-info">
+                <span class="tag">Desporto (Artes Marciais)</span>
+                <h3>Kimono Premium Pearl Weave</h3>
+                <p>Resistência e leveza para os seus treinos diários. O melhor custo-benefício para 2026.</p>
+                <a href="#" class="affiliate-link">Ver Oferta na Loja Oficial</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80" alt="Headphones">
+            <div class="product-info">
+                <span class="tag">Eletrónica</span>
+                <h3>Fones ANC Cancelamento Ruído</h3>
+                <p>Foco total no trabalho ou no treino com som de alta fidelidade.</p>
+                <a href="#" class="affiliate-link">Conferir Desconto</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80" alt="Teclado">
+            <div class="product-info">
+                <span class="tag">Setup & Produtividade</span>
+                <h3>Teclado Mecânico Wireless</h3>
+                <p>Design minimalista e resposta rápida para aumentar sua produtividade.</p>
+                <a href="#" class="affiliate-link">Ver na Loja</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="sobre">
+        <p><strong>Chipango World</strong> - Por Clénio</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
+            Como afiliado, podemos receber comissões por compras feitas através dos nossos links, sem custo adicional para você.
+        </p>
+    </footer>
+
+</body>
+</html>
