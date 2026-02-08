@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chipango World | Curadoria & Ofertas</title>
+    <title>Chipango World | Curadoria de Produtos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #008080; --secondary: #2c3e50; --bg: #f4f7f6; --accent: #e67e22; }
+        :root { --primary: #008080; --secondary: #2c3e50; --bg: #f4f7f6; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: #333; line-height: 1.6; }
         
         header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        
+        /* Logótipo em Código */
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-box { background: var(--primary); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 20px; }
         .logo-text { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
 
-        .hero { background: linear-gradient(135deg, #008080 0%, #2c3e50 100%); color: white; padding: 60px 5%; text-align: center; }
-        .section-title { text-align: center; margin: 40px 0 20px; font-size: 24px; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
+        nav a { margin-left: 15px; text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 14px; }
         
-        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5% 40px; }
-        .cat-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .hero { background: linear-gradient(135deg, #008080 0%, #2c3e50 100%); color: white; padding: 60px 5%; text-align: center; }
+        .hero h1 { font-size: 32px; margin-bottom: 10px; }
+
+        .section-title { text-align: center; margin: 40px 0 20px; font-size: 24px; color: var(--secondary); }
+        
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5% 50px; }
+        .cat-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .cat-card:hover { transform: translateY(-5px); }
         .cat-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
 
-        /* Estilo das Ofertas (Seção 1) */
-        .deals-section { background: #fff; padding: 40px 5%; border-radius: 20px; margin: 20px 5%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .badge { background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; position: absolute; top: 10px; right: 10px; }
-        .deal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .deal-card { position: relative; border: 1px solid #eee; padding: 15px; border-radius: 10px; text-align: center; }
+        /* Botões Verdes Profissionais */
+        .btn-amazon { 
+            background-color: var(--primary); 
+            color: white; 
+            padding: 12px 20px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .btn-amazon:hover { background-color: #006666; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 
-        /* Sobre Nós (Seção 2) */
-        .about-section { background: var(--secondary); color: white; padding: 60px 10%; text-align: center; margin-top: 40px; }
-        .about-container { max-width: 800px; margin: 0 auto; }
-
-        .btn-amazon { background-color: var(--primary); color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; margin-top: 15px; transition: 0.3s; }
-        .btn-amazon:hover { background-color: #006666; }
-
-        footer { background: #1a252f; color: white; text-align: center; padding: 30px; font-size: 13px; }
+        footer { background: var(--secondary); color: white; text-align: center; padding: 30px; font-size: 14px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -45,56 +53,45 @@
         <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#categorias">Categorias</a>
+    </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="home">
     <h1>Curadoria Inteligente de Produtos</h1>
-    <p>O Clénio seleciona, você economiza.</p>
+    <p>Os melhores achados da Amazon selecionados para si.</p>
 </section>
 
-<div class="deals-section">
-    <h2 class="section-title" style="margin-top: 0;"><i class="fas fa-fire" style="color: var(--accent);"></i> Ofertas do Dia</h2>
-    <div class="deal-grid">
-        <div class="deal-card">
-            <span class="badge">OFERTA</span>
-            <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=200&q=80" style="width:100px; margin-bottom:10px;">
-            <h4>iPad Air</h4>
-            <a href="https://www.amazon.es/dp/B09V7N6YBC?tag=chipangoworld-21" target="_blank" style="color:var(--primary); font-weight:bold; text-decoration:none; font-size:14px;">Ver Desconto →</a>
-        </div>
-        <div class="deal-card">
-            <span class="badge">TOP</span>
-            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=200&q=80" style="width:100px; margin-bottom:10px;">
-            <h4>Headphones Sony</h4>
-            <a href="https://www.amazon.es/dp/B08C7KG5LP?tag=chipangoworld-21" target="_blank" style="color:var(--primary); font-weight:bold; text-decoration:none; font-size:14px;">Ver Desconto →</a>
-        </div>
-    </div>
-</div>
+<h2 class="section-title" id="categorias">Nossas Categorias</h2>
 
-<h2 class="section-title" id="categorias">Explorar Categorias</h2>
 <div class="categories">
     <div class="cat-card">
         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
         <h3>Tecnologia</h3>
-        <a href="https://www.amazon.es/dp/B09B8V1LZ3?tag=chipangoworld-21" target="_blank" class="btn-amazon">Ver na Amazon</a>
+        <p>Gadgets essenciais para o seu dia.</p>
+        <a href="https://www.amazon.es/dp/B09B8V1LZ3?tag=chipangoworld-21" target="_blank" class="btn-amazon">Comprar na Amazon</a>
     </div>
+
     <div class="cat-card">
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
         <h3>Desporto</h3>
+        <p>Equipamento de alta performance.</p>
         <a href="https://www.amazon.es/dp/B09G399S8P?tag=chipangoworld-21" target="_blank" class="btn-amazon">Ver Equipamento</a>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Setup & Lar</h3>
+        <p>Produtividade e conforto total.</p>
+        <a href="https://www.amazon.es/dp/B088S5983V?tag=chipangoworld-21" target="_blank" class="btn-amazon">Melhorar Setup</a>
     </div>
 </div>
 
-<section class="about-section">
-    <div class="about-container">
-        <h2 style="margin-bottom: 20px;">Sobre a Chipango World</h2>
-        <p>A Chipango World nasceu da paixão por tecnologia e pela vontade de ajudar as pessoas a fazerem compras mais inteligentes. Eu, <strong>Clénio</strong>, dedico-me a filtrar os melhores produtos do mercado global, garantindo que você tenha acesso a itens de alta qualidade com os melhores preços da Amazon.</p>
-        <p style="margin-top: 15px; font-style: italic; opacity: 0.8;">"Minha missão é simplificar a sua escolha."</p>
-    </div>
-</section>
-
 <footer>
-    <p>&copy; 2026 Chipango World - Curadoria por Clénio</p>
-    <p style="font-size: 11px; margin-top: 10px; opacity: 0.6;">Aviso: Participamos no programa de afiliados da Amazon. Se comprar através dos nossos links, podemos ganhar uma pequena comissão.</p>
+    <p><strong>Chipango World - Por Clénio</strong></p>
+    <p style="font-size: 11px; margin-top: 10px; opacity: 0.7;">Participamos no Programa de Afiliados da Amazon. Recebemos comissões por compras qualificadas.</p>
 </footer>
 
 </body>
