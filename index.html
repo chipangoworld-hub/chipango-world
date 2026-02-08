@@ -15,7 +15,6 @@
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
 
-        /* MUDANÇA 3: Imagem de Fundo no Hero */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
@@ -25,17 +24,20 @@
             text-align: center; 
         }
 
-        /* Layout para Categorias + Sobre (MUDANÇA 1) */
-        .main-container { display: flex; flex-wrap: wrap; gap: 20px; padding: 40px 5%; align-items: flex-start; }
+        .section-title { text-align: center; margin: 40px 0 20px; font-size: 24px; color: var(--secondary); }
+
+        /* Grade de 3 colunas original */
+        .categories-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            padding: 0 5% 50px; 
+        }
         
-        .content-left { flex: 3; min-width: 300px; }
-        .sidebar-right { flex: 1; min-width: 250px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .cat-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .cat-img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
 
-        .btn-main { background-color: var(--primary); color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        .btn-main { background-color: var(--primary); color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; margin-top: 15px; }
 
         footer { background: var(--secondary); color: white; text-align: center; padding: 30px; font-size: 13px; margin-top: 40px; }
     </style>
@@ -54,30 +56,29 @@
     <p>Os melhores achados selecionados para si.</p>
 </section>
 
-<div class="main-container">
-    <div class="content-left">
-        <h2 style="margin-bottom: 20px;">Categorias</h2>
-        <div class="categories-grid">
-            <div class="cat-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
-                <h3>Tecnologia</h3>
-                <a href="#" class="btn-main">Ver Produtos</a>
-            </div>
-            <div class="cat-card">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
-                <h3>Desporto</h3>
-                <a href="#" class="btn-main">Ver Equipamento</a>
-            </div>
-        </div>
+<h2 class="section-title">Nossas Categorias</h2>
+
+<div class="categories-grid">
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Tecnologia</h3>
+        <p>Os gadgets que facilitam o seu dia a dia.</p>
+        <a href="#" class="btn-main">Ver Produtos</a>
     </div>
 
-    <aside class="sidebar-right">
-        <h3 style="color: var(--primary); margin-bottom: 15px;">Sobre a Chipango World</h3>
-        <p style="font-size: 14px; color: #555; line-height: 1.6;">
-            Olá, eu sou o <strong>Clénio</strong>. Criei este espaço para partilhar a minha curadoria de produtos. 
-            O meu objetivo é ajudar-te a encontrar itens de alta qualidade, filtrando o que realmente vale a pena no mercado online.
-        </p>
-    </aside>
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Desporto</h3>
+        <p>Alta performance para o seu estilo de vida.</p>
+        <a href="#" class="btn-main">Ver Equipamento</a>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Setup & Lar</h3>
+        <p>Conforto e produtividade no seu espaço.</p>
+        <a href="#" class="btn-main">Melhorar Setup</a>
+    </div>
 </div>
 
 <footer>
