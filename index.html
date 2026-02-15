@@ -10,56 +10,54 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: #333; }
         
-        /* HEADER COM PESQUISA E CARRINHO */
+        /* HEADER ORGANIZADO */
         header { 
             background: white; 
-            padding: 10px 5%; 
+            padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
         }
-        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
-        .logo-text { font-size: 18px; font-weight: bold; color: var(--primary); }
 
-        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 200px; }
+        .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
+        .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
+
+        /* Barra de Pesquisa Centralizada */
+        .search-container { flex-grow: 1; display: flex; justify-content: center; padding: 0 20px; }
+        .search-bar { display: flex; background: #f0f2f5; padding: 8px 15px; border-radius: 20px; align-items: center; width: 100%; max-width: 400px; }
+        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
         
-        /* Barra de Pesquisa */
-        .search-bar { display: flex; background: #eee; padding: 5px 15px; border-radius: 20px; align-items: center; }
-        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; font-size: 14px; width: 150px; }
-        
-        /* Carrinho */
-        .cart-icon { color: var(--secondary); font-size: 20px; position: relative; cursor: pointer; }
-        .cart-count { background: var(--primary); color: white; font-size: 10px; padding: 2px 6px; border-radius: 50%; position: absolute; top: -10px; right: -10px; }
+        /* Ações à Direita */
+        .header-actions { display: flex; align-items: center; gap: 20px; min-width: 100px; justify-content: flex-end; }
+        .cart-icon { color: var(--secondary); font-size: 22px; position: relative; cursor: pointer; }
+        .cart-count { background: var(--primary); color: white; font-size: 10px; padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -10px; }
 
         /* HERO COM IMAGEM DE FUNDO */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white; 
-            padding: 80px 5%; 
-            text-align: center; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 100px 5%; text-align: center; margin-bottom: 40px;
         }
-
-        .section-title { text-align: center; margin: 40px 0 20px; font-size: 24px; color: var(--secondary); }
+        .hero h1 { font-size: 32px; margin-bottom: 10px; }
 
         /* CATEGORIAS */
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5% 50px; }
-        .cat-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .section-title { text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--secondary); }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 60px; }
+        .cat-card { background: white; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+        .cat-card:hover { transform: translateY(-5px); }
+        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
 
-        .btn-main { background-color: var(--primary); color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; margin-top: 15px; transition: 0.3s; }
-        .btn-main:hover { opacity: 0.8; }
+        .btn-main { background-color: var(--primary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-main:hover { background-color: #006666; }
 
-        /* FOOTER COM O NOVO EMAIL */
-        footer { background: var(--secondary); color: white; text-align: center; padding: 40px 5%; margin-top: 40px; }
-        .contact-info { margin-bottom: 20px; }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        /* RODAPÉ COM EMAIL */
+        footer { background: var(--secondary); color: white; text-align: center; padding: 40px 5%; }
+        .footer-contact { margin-bottom: 20px; font-size: 16px; }
+        .footer-contact a { color: #40e0d0; text-decoration: none; font-weight: bold; }
+        .footer-disclaimer { font-size: 11px; opacity: 0.7; max-width: 600px; margin: 20px auto 0; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -70,23 +68,58 @@
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
 
-    <div class="header-actions">
+    <div class="search-container">
         <div class="search-bar">
             <i class="fas fa-search" style="color: #888;"></i>
-            <input type="text" placeholder="Procurar...">
+            <input type="text" placeholder="Pesquisar produtos...">
         </div>
-        
+    </div>
+
+    <div class="header-actions">
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">0</span>
         </div>
     </div>
-    <div class="contact-info">
+</header>
+
+<section class="hero">
+    <h1>Curadoria Inteligente de Produtos</h1>
+    <p>Os melhores achados selecionados criteriosamente para si.</p>
+</section>
+
+<h2 class="section-title">Nossas Categorias</h2>
+
+<div class="categories-grid">
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Tecnologia</h3>
+        <p style="margin-bottom:15px; color: #666;">Gadgets que elevam o seu dia a dia.</p>
+        <a href="#" class="btn-main">Ver Produtos</a>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Desporto</h3>
+        <p style="margin-bottom:15px; color: #666;">Equipamento para a sua melhor performance.</p>
+        <a href="#" class="btn-main">Ver Equipamento</a>
+    </div>
+
+    <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
+        <h3>Setup & Lar</h3>
+        <p style="margin-bottom:15px; color: #666;">Conforto e eficiência no seu espaço.</p>
+        <a href="#" class="btn-main">Melhorar Setup</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-contact">
         <p><i class="fas fa-envelope"></i> Contacto: <a href="mailto:chipangoworld@gmail.com">chipangoworld@gmail.com</a></p>
     </div>
     <p>&copy; 2026 Chipango World - Por Clénio</p>
-    <p style="font-size: 11px; margin-top: 10px; opacity: 0.7;">
-        Aviso: Participamos em programas de afiliados. Ao comprar através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
+    <p class="footer-disclaimer">
+        Aviso: Participamos em programas de afiliados. Ao efetuar compras através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
     </p>
 </footer>
 
