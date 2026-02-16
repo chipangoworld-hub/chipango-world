@@ -113,25 +113,83 @@
     </div>
 </div>
 
-<footer>
-    <div class="footer-contact">
-        <p><i class="fas fa-envelope"></i> Contacto: <a href="mailto:chipangoworld@gmail.com">chipangoworld@gmail.com</a></p>
-        <p style="margin-top: 10px;">
-            <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Saber mais sobre a Chipango World</a>
-        </p>
-    </div>
+<style>
+    /* Estilos para o Formulário de Contacto no Rodapé */
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .footer-info { flex: 1; min-width: 280px; }
+    .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; }
     
-    <p>&copy; 2026 Chipango World - Todos os direitos reservados.</p>
+    .footer-form h3 { margin-bottom: 15px; color: #40e0d0; font-size: 18px; }
+    .footer-form input, .footer-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .footer-form textarea { height: 80px; resize: none; }
     
-    <p style="font-style: italic; margin-top: 5px; opacity: 0.9;">Cada detalhe conta, cada escolha inspira.</p>
+    .btn-submit {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.3s;
+    }
+    .btn-submit:hover { background-color: #006666; }
 
-    <p class="footer-disclaimer">
+    @media (max-width: 768px) {
+        .footer-container { flex-direction: column; text-align: center; }
+        .footer-form { text-align: left; }
+    }
+</style>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <div class="footer-contact">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:chipangoworld@gmail.com">chipangoworld@gmail.com</a></p>
+                <p style="margin-top: 10px;">
+                    <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Saber mais sobre a Chipango World</a>
+                </p>
+            </div>
+            <div style="margin-top: 20px;">
+                <p>&copy; Chipango World - Todos os direitos reservados.</p>
+                <p style="font-style: italic; margin-top: 5px; opacity: 0.9;">Cada detalhe conta, cada escolha inspira.</p>
+            </div>
+        </div>
+
+        <div class="footer-form">
+            <h3>Envie-nos uma mensagem</h3>
+            <form action="https://formspree.io/f/chipangoworld@gmail.com" method="POST">
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+                <textarea name="mensagem" placeholder="Como podemos ajudar?" required></textarea>
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+
+    <p class="footer-disclaimer" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
         Aviso: Participamos em programas de afiliados. Ao comprar através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
     </p>
 </footer>
-
 </body>
 </html>
+
 
 
 
