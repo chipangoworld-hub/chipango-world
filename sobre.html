@@ -8,40 +8,66 @@
     <style>
         :root { --primary: #008080; --secondary: #2c3e50; --bg: #f4f7f6; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg); color: #333; line-height: 1.6; }
         
-        header { 
-            background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex; justify-content: space-between; align-items: center;
+        body { background-color: var(--bg); color: #333; line-height: 1.6; }
+
+        /* REFINAMENTO: Header com Efeito Vidro */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
 
-        .container { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        /* REFINAMENTO: Animação de Entrada do Conteúdo */
+        .container { 
+            max-width: 800px; 
+            margin: 50px auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1 { color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--primary); display: inline-block; }
         p { margin-bottom: 20px; font-size: 18px; color: #555; }
         .highlight { color: var(--primary); font-weight: bold; }
-        .back-btn { display: inline-block; margin-top: 20px; color: var(--secondary); text-decoration: none; font-weight: bold; }
+        
+        blockquote {
+            font-style: italic; font-size: 19px; color: #555; text-align: center; 
+            padding: 20px; background: #f9f9f9; border-radius: 10px; margin: 30px 0;
+        }
 
-        /* RODAPÉ ESTILIZADO (Igual ao Index) */
-        footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 40px; }
+        .back-btn { display: inline-block; margin-top: 20px; color: var(--secondary); text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { color: var(--primary); transform: translateX(-5px); }
+
+        /* RODAPÉ (Garantido) */
+        footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 60px; width: 100%; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 0 auto; }
-        .footer-info { flex: 1; min-width: 280px; text-align: left; }
-        .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; text-align: left; }
+        .footer-info, .footer-form { flex: 1; min-width: 280px; }
         
-        .footer-form h3 { margin-bottom: 20px; color: #40e0d0; font-size: 20px; }
-        .footer-form input, .footer-form textarea {
-            width: 100%; padding: 12px; margin-bottom: 12px; border: none; border-radius: 8px; font-size: 14px; background: white;
-        }
-        .footer-form textarea { height: 100px; resize: none; }
-        
-        .btn-submit {
-            background-color: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;
-        }
-        .btn-submit:hover { background-color: #006666; }
+        .footer-form { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; }
+        .footer-form input, .footer-form textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: none; border-radius: 8px; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-submit:hover { background: #006666; }
 
-        .footer-disclaimer { font-size: 11px; opacity: 0.7; max-width: 1000px; margin: 40px auto 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .footer-disclaimer { font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
@@ -56,71 +82,59 @@
 <div class="container">
     <h1>Sobre a Chipango World</h1>
     <p>Bem-vindo à <strong>Chipango World</strong>, o seu destino online para descobrir produtos excecionais de todo o mundo.</p>
-    
+   
     <p style="font-size: 20px; color: var(--primary); font-weight: bold; text-align: center; margin: 30px 0;">
         "Onde a Elegância Encontra a Inovação"
     </p>
 
-    <p>Trabalhamos com parceiros de confiança como <strong>AliExpress, Amazon, Digistore, ClickBank</strong>, entre outros, selecionando cuidadosamente cada produto para garantir qualidade, inovação e valor.</p>
-    
-    <p>A nossa missão é simples: garantir que cada produto listado aqui lhe ofereça uma experiência atendendo aos detalhes, pensando no seu estilo de vida, nas suas necessidades e nos seus sonhos. Na Chipango World, <span class="highlight">cada detalhe conta, cada escolha inspira.</span></p>
+    <p>Trabalhamos com parceiros de confiança como <strong>AliExpress, Amazon, Digistore, ClickBank</strong>, selecionando cuidadosamente cada produto para garantir qualidade e inovação.</p>
+   
+    <p>A nossa missão é simples: garantir que cada detalhe conte. Na Chipango World, <span class="highlight">cada detalhe conta, cada escolha inspira.</span></p>
 
-    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid var(--primary); font-size: 15px; margin: 25px 0;">
-        <strong>Transparência:</strong> Para manter o site ativo, participamos em programas de afiliados. Isto significa que, ao comprar através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
+    <div style="background: #f4f7f6; padding: 15px; border-left: 4px solid var(--primary); font-size: 15px; margin: 25px 0;">
+        <strong>Transparência:</strong> Participamos em programas de afiliados. Ao comprar pelos nossos links, podemos receber uma comissão sem custo extra para si.
     </div>
 
     <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 
     <h2 style="color: var(--secondary); margin-bottom: 20px;">Mensagem do CEO</h2>
-    
-    <blockquote style="font-style: italic; font-size: 19px; color: #555; border-left: none; text-align: center; padding: 20px; background: #fff;">
-        "Inteligentes construíram o Titanic, enquanto que malucos construíram a Arca" 
-        <br><small>— Igor Camões</small>
+   
+    <blockquote>
+        "Inteligentes construíram o Titanic, enquanto que malucos construíram a Arca"
+        <br><small style="color: #888;">— Igor Camões</small>
     </blockquote>
 
-    <p>Quando criei a Chipango World, tinha uma visão clara: criar um espaço onde a elegância encontra a inovação, onde cada produto conta uma história e cada compra é uma experiência memorável. Num mundo saturado de opções, acredito que o que nos distingue não é apenas o que vendemos, mas como o fazemos.</p>
+    <p>Como diz a citação que me inspira: por vezes, é preciso ter a coragem dos "malucos" para construir algo extraordinário. Esta plataforma nasceu da paixão por conectar pessoas a produtos que realmente fazem a diferença.</p>
 
-    <p>Como diz a citação que me inspira: por vezes, é preciso ter a coragem dos "malucos" para construir algo verdadeiramente extraordinário. Esta plataforma nasceu da paixão por conectar pessoas a produtos que realmente fazem a diferença — produtos que inspiram confiança, elevam o quotidiano e refletem o melhor do mercado. Ser transparente sobre o nosso modelo de afiliados é, para mim, uma questão de respeito e autenticidade.</p>
-
-    <p>Convido-o a explorar, a descobrir e a fazer parte desta jornada. <strong>Juntos, vamos construir algo extraordinário.</strong></p>
-
-    <p style="margin-top: 30px;">
-        <strong>— Clénio Chipango</strong><br>
-        <span style="color: var(--primary); font-size: 14px; font-weight: bold;">CEO da Chipango World</span>
-    </p>
+    <p><strong>— Clénio Chipango</strong><br>
+    <span style="color: var(--primary); font-size: 14px; font-weight: bold;">CEO da Chipango World</span></p>
 
     <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar à página inicial</a>
 </div>
-
 
 <footer>
     <div class="footer-container">
         <div class="footer-info">
             <h2 style="color: #40e0d0; margin-bottom: 20px;">Chipango World</h2>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:chipangoworld@gmail.com" style="color: white; text-decoration: none;">chipangoworld@gmail.com</a></p>
-            <p style="margin-top: 15px;">
-                <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Saber mais sobre a Chipango World</a>
-            </p>
-            
-            <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-                <p>&copy; Chipango World - Todos os direitos reservados.</p>
-                <p style="font-style: italic; margin-top: 5px; color: #40e0d0;">Cada detalhe conta, cada escolha inspira.</p>
+            <p><i class="fas fa-envelope"></i> chipangoworld@gmail.com</p>
+            <div style="margin-top: 30px;">
+                <p>&copy; 2026 Chipango World</p>
+                <p style="font-style: italic; color: #40e0d0;">Cada detalhe conta, cada escolha inspira.</p>
             </div>
         </div>
 
         <div class="footer-form">
-            <h3>Envie-nos uma mensagem</h3>
+            <h3>Mensagem Directa</h3>
             <form action="https://formspree.io/f/mpqjrwjz" method="POST">
                 <input type="text" name="Nome" placeholder="Seu Nome" required>
                 <input type="email" name="Email" placeholder="Seu E-mail" required>
                 <textarea name="Mensagem" placeholder="Como podemos ajudar?" required></textarea>
-                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                <button type="submit" class="btn-submit">Enviar</button>
             </form>
         </div>
     </div>
-
-    <p class="footer-disclaimer" style="margin-top: 40px; font-size: 11px; opacity: 0.6; text-align: center;">
-        Aviso: Participamos em programas de afiliados. Ao efetuar compras através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
+    <p class="footer-disclaimer">
+        Aviso: Participamos em programas de afiliados. Podemos receber comissão por compras via links.
     </p>
 </footer>
 
