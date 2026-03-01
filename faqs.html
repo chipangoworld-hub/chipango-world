@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Chipango World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #008080; --secondary: #2c3e50; --bg: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg); color: #333; }
+        
+        header { background: white; padding: 15px 5%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; justify-self: start; }
+        .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
+        .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
+        .search-bar { display: flex; background: #f0f2f5; padding: 8px 15px; border-radius: 20px; align-items: center; width: 350px; border: 1px solid #e0e0e0; }
+        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
+        .search-bar i { color: #888; margin-right: 8px; }
+        .cart-icon { justify-self: end; }
 
+        .content-section { max-width: 800px; margin: 60px auto; padding: 0 5%; min-height: 60vh; }
+        h1 { color: var(--secondary); margin-bottom: 30px; text-align: center; }
+        .faq-item { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .faq-item h3 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+        .faq-item p { color: #666; font-size: 15px; line-height: 1.6; }
+
+        footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 60px; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 0 auto; }
+        .footer-info { flex: 1; min-width: 280px; }
+        .footer-disclaimer { font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .footer-links a { color: #40e0d0; text-decoration: none; margin-right: 15px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-container">
+        <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
+        <div class="logo-text">CHIPANGO WORLD</div>
+    </a>
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Pesquisar...">
+    </div>
+    <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
+</header>
+
+<main class="content-section">
+    <h1>Perguntas Frequentes (FAQs)</h1>
+    
+    <div class="faq-item">
+        <h3>O que é a Chipango World?</h3>
+        <p>Somos uma plataforma de seleção exclusiva focada em tecnologia, desporto e conforto. Filtramos o melhor do mercado global para que não perca tempo a procurar.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Como funcionam as compras?</h3>
+        <p>A Chipango World recomenda os produtos. Ao clicar em "Ver Detalhes", será direcionado para o site do fornecedor oficial para concluir a compra com total segurança.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Os preços são mais caros por vossa causa?</h3>
+        <p>Não. O preço é o mesmo praticado pela loja oficial. Recebemos uma pequena comissão do vendedor, sem qualquer custo extra para si.</p>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <h2 style="color: #40e0d0; margin-bottom: 20px;">Chipango World</h2>
+            <div class="footer-links">
+                <a href="index.html">Início</a>
+                <a href="legal.html">Termos e Privacidade</a>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2026 Chipango World - Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
