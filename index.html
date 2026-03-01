@@ -10,92 +10,59 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: #333; }
         
-        /* HEADER COM PESQUISA AO CENTRO */
+        /* HEADER - PESQUISA AO CENTRO */
         header { 
-            background: white;
-            padding: 15px 5%; 
-            display: grid;
-            grid-template-columns: 1fr auto 1fr; /* Divide em 3 partes para centralizar a do meio */
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky; 
-            top: 0; 
-            z-index: 1100;
+            background: white; padding: 15px 5%; 
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100;
         }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; justify-self: start; }
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
-
         .search-bar { 
-            display: flex; 
-            background: #f0f2f5; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            align-items: center; 
-            width: 350px; /* Largura fixa para manter o centro */
-            border: 1px solid #e0e0e0;
+            display: flex; background: #f0f2f5; padding: 8px 15px; border-radius: 20px; 
+            align-items: center; width: 350px; border: 1px solid #e0e0e0;
         }
         .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
         .search-bar i { color: #888; margin-right: 8px; }
-
         .cart-icon { justify-self: end; }
 
         /* MENU DE CATEGORIAS */
-        .categories-nav {
-            background: white;
-            padding: 12px 5%;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: center;
-        }
+        .categories-nav { background: white; padding: 12px 5%; border-bottom: 1px solid #eee; display: flex; justify-content: center; }
         .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { 
-            text-decoration: none; 
-            color: var(--secondary); 
-            font-weight: 500; 
-            font-size: 14px; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-        }
+        .nav-menu a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* BANNER (HERO) - NOVA IMAGEM */
+        /* BANNER (HERO) - IMAGEM PREMIUM */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover; 
-            background-position: center; 
-            color: white; 
-            padding: 100px 5%; 
-            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover; background-position: center; color: white; padding: 120px 5%; text-align: center;
         }
-        .hero h1 { font-size: 38px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 42px; text-shadow: 0 4px 15px rgba(0,0,0,0.6); margin-bottom: 10px; }
+        .hero p { font-size: 18px; opacity: 0.9; }
 
-        /* GRELHA DE PRODUTOS */
+        /* GRELHA DE PRODUTOS DE TODAS AS CATEGORIAS */
         .main-content { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
-        .categories-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 25px; 
+        .section-title { text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--secondary); position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .products-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; 
         }
-        .cat-card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            text-align: center; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+        .product-card { 
+            background: white; padding: 15px; border-radius: 12px; text-align: left; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; position: relative;
         }
-        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
-        .btn-main { 
-            background-color: var(--primary); 
-            color: white; 
-            padding: 12px; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: bold; 
-            display: inline-block; 
-            width: 100%; 
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .badge { background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 10px; position: absolute; top: 15px; left: 15px; text-transform: uppercase; font-weight: bold; }
+        .product-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .product-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--secondary); }
+        .price { font-size: 18px; font-weight: bold; color: var(--primary); display: block; margin-bottom: 15px; }
+        .btn-buy { 
+            background-color: var(--secondary); color: white; padding: 10px; text-decoration: none; 
+            border-radius: 6px; font-weight: bold; display: block; text-align: center; font-size: 14px; transition: 0.3s;
         }
+        .btn-buy:hover { background-color: var(--primary); }
 
         /* RODAPÉ */
         footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 60px; }
@@ -104,11 +71,7 @@
         .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; }
         .footer-form input, .footer-form textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: none; border-radius: 8px; }
         .btn-submit { background-color: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
-        
-        .footer-disclaimer { 
-            font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; 
-            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; 
-        }
+        .footer-disclaimer { font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
 
         @media (max-width: 768px) {
             header { display: flex; flex-direction: column; gap: 15px; }
@@ -124,12 +87,10 @@
         <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
-    
     <div class="search-bar">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Pesquisar produtos excecionais...">
     </div>
-    
     <div class="cart-icon"><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></div>
 </header>
 
@@ -143,29 +104,44 @@
 </nav>
 
 <section class="hero">
-    <h1>Curadoria Inteligente</h1>
+    <h1>Exclusividade em Cada Detalhe</h1>
     <p>Onde a Elegância Encontra a Inovação.</p>
 </section>
 
 <main class="main-content">
-    <div class="categories-grid">
-        <div class="cat-card">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
-            <h3>Tecnologia</h3>
-            <p style="margin: 10px 0 20px; color: #666;">Inovação para o seu dia.</p>
-            <a href="#" class="btn-main">Ver Produtos</a>
+    <h2 class="section-title">Destaques da Chipango World</h2>
+    
+    <div class="products-grid">
+        <div class="product-card">
+            <span class="badge">Tecnologia</span>
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500&auto=format&fit=crop" class="product-img">
+            <h3>Headphones Premium Wireless</h3>
+            <span class="price">Consulte o Preço</span>
+            <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
-        <div class="cat-card">
-            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
-            <h3>Desporto</h3>
-            <p style="margin: 10px 0 20px; color: #666;">Energia e Performance.</p>
-            <a href="#" class="btn-main">Ver Produtos</a>
+
+        <div class="product-card">
+            <span class="badge">Desporto</span>
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500&auto=format&fit=crop" class="product-img">
+            <h3>Smartwatch Performance Pro</h3>
+            <span class="price">Consulte o Preço</span>
+            <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
-        <div class="cat-card">
-            <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
-            <h3>Espaço & Conforto</h3>
-            <p style="margin: 10px 0 20px; color: #666;">O melhor para o seu lar.</p>
-            <a href="#" class="btn-main">Ver Produtos</a>
+
+        <div class="product-card">
+            <span class="badge">Espaço & Conforto</span>
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=500&auto=format&fit=crop" class="product-img">
+            <h3>Coluna Bluetooth Design</h3>
+            <span class="price">Consulte o Preço</span>
+            <a href="#" class="btn-buy">Ver Detalhes</a>
+        </div>
+
+        <div class="product-card">
+            <span class="badge">Novidade</span>
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=500&auto=format&fit=crop" class="product-img">
+            <h3>Câmara Instantânea Retro</h3>
+            <span class="price">Consulte o Preço</span>
+            <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
     </div>
 </main>
