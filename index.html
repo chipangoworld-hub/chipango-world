@@ -27,14 +27,25 @@
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
 
+        /* CAIXA DE PESQUISA (Recolocada) */
+        .search-bar { 
+            display: flex; 
+            background: #f0f2f5; 
+            padding: 8px 15px; 
+            border-radius: 20px; 
+            align-items: center; 
+            width: 100%; 
+            max-width: 350px; 
+            border: 1px solid #e0e0e0;
+        }
+        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
+        .search-bar i { color: #888; margin-right: 8px; }
+
         /* MENU DE CATEGORIAS (POR CIMA DO BANNER) */
         .categories-nav {
             background: white;
             padding: 12px 5%;
             border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 65px; /* Fica logo abaixo do header ao fazer scroll */
-            z-index: 1000;
             display: flex;
             justify-content: center;
         }
@@ -55,15 +66,16 @@
         }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* BANNER (HERO) - AGORA ABAIXO DAS CATEGORIAS */
+        /* BANNER (HERO) - NOVA IMAGEM */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519326882834-04c334752f58?q=80&w=1600&auto=format&fit=crop');
             background-size: cover; 
             background-position: center; 
             color: white; 
-            padding: 80px 5%; 
+            padding: 90px 5%; 
             text-align: center;
         }
+        .hero h1 { font-size: 36px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
         /* GRELHA DE PRODUTOS */
         .main-content { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
@@ -79,7 +91,6 @@
             text-align: center; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
             transition: 0.3s;
-            animation: fadeInUp 0.8s ease backwards;
         }
         .cat-card:hover { transform: translateY(-10px); }
         .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
@@ -92,11 +103,6 @@
             font-weight: bold; 
             display: inline-block; 
             width: 100%; 
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* RODAPÉ CORRIGIDO */
@@ -113,7 +119,10 @@
         }
 
         @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px 2%; }
+            .search-bar { max-width: 100%; width: 100%; }
             .nav-menu { gap: 15px; font-size: 12px; flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 28px; }
         }
     </style>
 </head>
@@ -124,6 +133,12 @@
         <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
+    
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Pesquisar produtos excecionais...">
+    </div>
+    
     <div style="cursor:pointer;"><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></div>
 </header>
 
@@ -173,7 +188,7 @@
                 <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Sobre a Chipango World</a>
             </p>
             <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-                <p>&copy; 2026 Chipango World - Todos os direitos reservados.</p>
+                <p>&copy; Chipango World - Todos os direitos reservados.</p>
                 <p style="font-style: italic; margin-top: 5px; color: #40e0d0;">Cada detalhe conta, cada escolha inspira.</p>
             </div>
         </div>
@@ -188,8 +203,9 @@
             </form>
         </div>
     </div>
-    <p class="footer-disclaimer">
-        Aviso: Participamos em programas de afiliados. Podemos receber comissão por compras via links.
+    
+    <p class="footer-disclaimer" style="margin-top: 40px; font-size: 11px; opacity: 0.6; text-align: center;">
+        Aviso: Participamos em programas de afiliados. Ao efetuar compras através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
     </p>
 </footer>
 
