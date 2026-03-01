@@ -33,15 +33,15 @@
         .nav-menu a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
         .nav-menu a:hover { color: var(--primary); }
 
-        /* BANNER (HERO) - IMAGEM PREMIUM */
+        /* BANNER (HERO) - IMAGEM MIX (TECNOLOGIA + CONFORTO) */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop');
             background-size: cover; background-position: center; color: white; padding: 120px 5%; text-align: center;
         }
         .hero h1 { font-size: 42px; text-shadow: 0 4px 15px rgba(0,0,0,0.6); margin-bottom: 10px; }
         .hero p { font-size: 18px; opacity: 0.9; }
 
-        /* GRELHA DE PRODUTOS DE TODAS AS CATEGORIAS */
+        /* GRELHA DE PRODUTOS */
         .main-content { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
         .section-title { text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--secondary); position: relative; padding-bottom: 10px; }
         .section-title::after { content: ''; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
@@ -49,18 +49,25 @@
         .products-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; 
         }
+        
+        /* CARD COM ALINHAMENTO DE BOTÕES */
         .product-card { 
             background: white; padding: 15px; border-radius: 12px; text-align: left; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; position: relative;
+            display: flex; flex-direction: column; /* Organiza o conteúdo em coluna */
         }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .badge { background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 10px; position: absolute; top: 15px; left: 15px; text-transform: uppercase; font-weight: bold; }
+        .badge { background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 10px; position: absolute; top: 15px; left: 15px; text-transform: uppercase; font-weight: bold; z-index: 10; }
         .product-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-        .product-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--secondary); }
-        .price { font-size: 18px; font-weight: bold; color: var(--primary); display: block; margin-bottom: 15px; }
+        
+        .product-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--secondary); flex-grow: 1; /* Faz o título ocupar o espaço necessário e empurra o botão para baixo */ }
+        
+        .price { font-size: 17px; font-weight: bold; color: var(--primary); display: block; margin-bottom: 15px; }
+        
         .btn-buy { 
             background-color: var(--secondary); color: white; padding: 10px; text-decoration: none; 
             border-radius: 6px; font-weight: bold; display: block; text-align: center; font-size: 14px; transition: 0.3s;
+            margin-top: auto; /* Garante que o botão fique sempre no fundo do card */
         }
         .btn-buy:hover { background-color: var(--primary); }
 
@@ -115,7 +122,7 @@
         <div class="product-card">
             <span class="badge">Tecnologia</span>
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500&auto=format&fit=crop" class="product-img">
-            <h3>Headphones Premium Wireless</h3>
+            <h3>Auscultadores Wireless Hi-Fi Premium</h3>
             <span class="price">Consulte o Preço</span>
             <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
@@ -123,7 +130,7 @@
         <div class="product-card">
             <span class="badge">Desporto</span>
             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500&auto=format&fit=crop" class="product-img">
-            <h3>Smartwatch Performance Pro</h3>
+            <h3>Smartwatch Performance</h3>
             <span class="price">Consulte o Preço</span>
             <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
@@ -139,7 +146,7 @@
         <div class="product-card">
             <span class="badge">Novidade</span>
             <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=500&auto=format&fit=crop" class="product-img">
-            <h3>Câmara Instantânea Retro</h3>
+            <h3>Câmara Instantânea Retro Limited Edition</h3>
             <span class="price">Consulte o Preço</span>
             <a href="#" class="btn-buy">Ver Detalhes</a>
         </div>
