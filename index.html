@@ -10,164 +10,170 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg); color: #333; }
         
-        /* HEADER ORGANIZADO */
+        /* HEADER PRINCIPAL */
         header { 
-            background: white; 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(10px);
             padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; 
+            top: 0; 
+            z-index: 1100;
         }
-
-        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 200px; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
 
-        /* Barra de Pesquisa Centralizada */
-        .search-container { flex-grow: 1; display: flex; justify-content: center; padding: 0 20px; }
-        .search-bar { display: flex; background: #f0f2f5; padding: 8px 15px; border-radius: 20px; align-items: center; width: 100%; max-width: 400px; }
-        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
-        
-        /* Ações à Direita */
-        .header-actions { display: flex; align-items: center; gap: 20px; min-width: 100px; justify-content: flex-end; }
-        .cart-icon { color: var(--secondary); font-size: 22px; position: relative; cursor: pointer; }
-        .cart-count { background: var(--primary); color: white; font-size: 10px; padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -10px; }
+        /* MENU DE CATEGORIAS (POR CIMA DO BANNER) */
+        .categories-nav {
+            background: white;
+            padding: 12px 5%;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 65px; /* Fica logo abaixo do header ao fazer scroll */
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 30px; 
+        }
+        .nav-menu a { 
+            text-decoration: none; 
+            color: var(--secondary); 
+            font-weight: 500; 
+            font-size: 14px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--primary); }
 
-        /* HERO COM IMAGEM DE FUNDO */
+        /* BANNER (HERO) - AGORA ABAIXO DAS CATEGORIAS */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; background-position: center;
-            color: white; padding: 100px 5%; text-align: center; margin-bottom: 40px;
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            padding: 80px 5%; 
+            text-align: center;
         }
-        .hero h1 { font-size: 32px; margin-bottom: 10px; }
 
-        /* CATEGORIAS */
-        .section-title { text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--secondary); }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 60px; }
-        .cat-card { background: white; padding: 25px; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .cat-card:hover { transform: translateY(-5px); }
-        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        /* GRELHA DE PRODUTOS */
+        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .categories-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
+        .cat-card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 15px; 
+            text-align: center; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            transition: 0.3s;
+            animation: fadeInUp 0.8s ease backwards;
+        }
+        .cat-card:hover { transform: translateY(-10px); }
+        .cat-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .btn-main { 
+            background-color: var(--primary); 
+            color: white; 
+            padding: 12px; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            display: inline-block; 
+            width: 100%; 
+        }
 
-        .btn-main { background-color: var(--primary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .btn-main:hover { background-color: #006666; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* RODAPÉ COM EMAIL */
-        footer { background: var(--secondary); color: white; text-align: center; padding: 40px 5%; }
-        .footer-contact { margin-bottom: 20px; font-size: 16px; }
-        .footer-contact a { color: #40e0d0; text-decoration: none; font-weight: bold; }
-        .footer-disclaimer { font-size: 11px; opacity: 0.7; max-width: 600px; margin: 20px auto 0; line-height: 1.5; }
+        /* RODAPÉ CORRIGIDO */
+        footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 60px; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 0 auto; }
+        .footer-info { flex: 1; min-width: 280px; }
+        .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; }
+        .footer-form input, .footer-form textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: none; border-radius: 8px; }
+        .btn-submit { background-color: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
+        
+        .footer-disclaimer { 
+            font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; 
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; 
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { gap: 15px; font-size: 12px; flex-wrap: wrap; justify-content: center; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo-container">
+    <a href="index.html" class="logo-container">
         <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
-
-    <div class="search-container">
-        <div class="search-bar">
-            <i class="fas fa-search" style="color: #888;"></i>
-            <input type="text" placeholder="Pesquisar produtos...">
-        </div>
-    </div>
-
-    <div class="header-actions">
-        <div class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </div>
-    </div>
+    <div style="cursor:pointer;"><i class="fas fa-shopping-cart" style="font-size: 20px;"></i></div>
 </header>
 
+<nav class="categories-nav">
+    <ul class="nav-menu">
+        <li><a href="#"><i class="fas fa-laptop"></i> Tecnologia</a></li>
+        <li><a href="#"><i class="fas fa-running"></i> Desporto</a></li>
+        <li><a href="#"><i class="fas fa-couch"></i> Espaço & Conforto</a></li>
+        <li><a href="#"><i class="fas fa-star"></i> Novidades</a></li>
+    </ul>
+</nav>
+
 <section class="hero">
-    <h1>Curadoria Inteligente de Produtos</h1>
-    <p>Os melhores achados selecionados criteriosamente para si.</p>
+    <h1>Curadoria Inteligente</h1>
+    <p>Onde a Elegância Encontra a Inovação.</p>
 </section>
 
-<h2 class="section-title">Nossas Categorias</h2>
-
-<div class="categories-grid">
-    <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
-        <h3>Tecnologia</h3>
-        <p style="margin-bottom:15px; color: #666;">Gadgets que elevam o seu dia a dia.</p>
-        <a href="#" class="btn-main">Ver Produtos</a>
+<main class="main-content">
+    <div class="categories-grid">
+        <div class="cat-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" class="cat-img">
+            <h3>Tecnologia</h3>
+            <p style="margin: 10px 0 20px; color: #666;">Inovação para o seu dia.</p>
+            <a href="#" class="btn-main">Ver Produtos</a>
+        </div>
+        <div class="cat-card">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
+            <h3>Desporto</h3>
+            <p style="margin: 10px 0 20px; color: #666;">Energia e Performance.</p>
+            <a href="#" class="btn-main">Ver Produtos</a>
+        </div>
+        <div class="cat-card">
+            <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
+            <h3>Espaço & Conforto</h3>
+            <p style="margin: 10px 0 20px; color: #666;">O melhor para o seu lar.</p>
+            <a href="#" class="btn-main">Ver Produtos</a>
+        </div>
     </div>
-
-    <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80" class="cat-img">
-        <h3>Desporto</h3>
-        <p style="margin-bottom:15px; color: #666;">Equipamento para a sua melhor performance.</p>
-        <a href="#" class="btn-main">Ver Equipamento</a>
-    </div>
-
-    <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=500&q=80" class="cat-img">
-        <h3>Setup & Lar</h3>
-        <p style="margin-bottom:15px; color: #666;">Conforto e eficiência no seu espaço.</p>
-        <a href="#" class="btn-main">Melhorar Setup</a>
-    </div>
-</div>
-
-<style>
-    /* Estilos para o Formulário de Contacto no Rodapé */
-    .footer-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 40px;
-        max-width: 1100px;
-        margin: 0 auto;
-        text-align: left;
-    }
-    .footer-info { flex: 1; min-width: 280px; }
-    .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; }
-    
-    .footer-form h3 { margin-bottom: 15px; color: #40e0d0; font-size: 18px; }
-    .footer-form input, .footer-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-    .footer-form textarea { height: 80px; resize: none; }
-    
-    .btn-submit {
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        width: 100%;
-        transition: 0.3s;
-    }
-    .btn-submit:hover { background-color: #006666; }
-
-    @media (max-width: 768px) {
-        .footer-container { flex-direction: column; text-align: center; }
-        .footer-form { text-align: left; }
-    }
-</style>
+</main>
 
 <footer>
     <div class="footer-container">
         <div class="footer-info">
             <h2 style="color: #40e0d0; margin-bottom: 20px;">Chipango World</h2>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:chipangoworld@gmail.com" style="color: white; text-decoration: none;">chipangoworld@gmail.com</a></p>
+            <p><i class="fas fa-envelope"></i> chipangoworld@gmail.com</p>
             <p style="margin-top: 15px;">
-                <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Saber mais sobre a Chipango World</a>
+                <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Sobre a Chipango World</a>
             </p>
-            
             <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-                <p>&copy; Chipango World - Todos os direitos reservados.</p>
+                <p>&copy; 2026 Chipango World - Todos os direitos reservados.</p>
                 <p style="font-style: italic; margin-top: 5px; color: #40e0d0;">Cada detalhe conta, cada escolha inspira.</p>
             </div>
         </div>
@@ -182,19 +188,10 @@
             </form>
         </div>
     </div>
-
-    <p class="footer-disclaimer" style="margin-top: 40px; font-size: 11px; opacity: 0.6; text-align: center;">
-        Aviso: Participamos em programas de afiliados. Ao efetuar compras através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.
+    <p class="footer-disclaimer">
+        Aviso: Participamos em programas de afiliados. Podemos receber comissão por compras via links.
     </p>
 </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
