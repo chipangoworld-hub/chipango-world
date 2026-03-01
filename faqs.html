@@ -14,21 +14,21 @@
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; justify-self: start; }
         .logo-box { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
         .logo-text { font-size: 20px; font-weight: bold; color: var(--primary); }
+        .search-bar { display: flex; background: #f0f2f5; padding: 8px 15px; border-radius: 20px; align-items: center; width: 350px; border: 1px solid #e0e0e0; }
+        .search-bar input { border: none; background: transparent; outline: none; padding: 5px; width: 100%; font-size: 14px; }
+        .search-bar i { color: #888; margin-right: 8px; }
+        .cart-icon { justify-self: end; }
 
-        .content-section { max-width: 800px; margin: 60px auto; padding: 0 5%; min-height: 50vh; }
+        .content-section { max-width: 800px; margin: 60px auto; padding: 0 5%; min-height: 60vh; }
         h1 { color: var(--secondary); margin-bottom: 30px; text-align: center; }
         .faq-item { background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 4px solid var(--primary); }
-        .faq-item h3 { color: var(--secondary); margin-bottom: 12px; font-size: 18px; }
+        .faq-item h3 { color: var(--secondary); margin-bottom: 12px; font-size: 18px; font-weight: 600; }
         .faq-item p { color: #555; font-size: 15px; line-height: 1.6; }
 
-        /* RODAPÉ PADRÃO INDEX */
         footer { background: var(--secondary); color: white; padding: 60px 5% 20px; margin-top: 60px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1100px; margin: 0 auto; }
         .footer-info { flex: 1; min-width: 280px; }
-        .footer-form { flex: 1; min-width: 300px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; }
-        .footer-form input, .footer-form textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: none; border-radius: 8px; }
-        .btn-submit { background-color: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
-        .footer-disclaimer { font-size: 11px; opacity: 0.6; text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .footer-links a { color: #40e0d0; text-decoration: none; margin-right: 15px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -38,18 +38,34 @@
         <div class="logo-box"><i class="fas fa-shopping-bag"></i></div>
         <div class="logo-text">CHIPANGO WORLD</div>
     </a>
-    <div style="visibility: hidden;">Spacer</div>
+    <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Pesquisar...">
+    </div>
+    <div class="cart-icon"><i class="fas fa-shopping-cart"></i></div>
 </header>
 
 <main class="content-section">
-    <h1>Perguntas Frequentes</h1>
+    <h1>Perguntas Frequentes (FAQs)</h1>
+    
+    <div class="faq-item">
+        <h3>O que é a Chipango World?</h3>
+        <p>Somos uma plataforma de <strong>Seleção Exclusiva</strong> focada em tecnologia, desporto e conforto. Filtramos o melhor do mercado global para que não perca tempo a procurar.</p>
+    </div>
+
     <div class="faq-item">
         <h3>Onde posso receber os produtos?</h3>
         <p>Como trabalhamos com parceiros globais, a maioria dos produtos pode ser enviada para quase qualquer parte do mundo. Verifique as condições de envio específicas na página final de compra do parceiro.</p>
     </div>
+
     <div class="faq-item">
         <h3>Como funcionam as compras?</h3>
         <p>A Chipango World recomenda os produtos. Ao clicar em "Ver Detalhes", será direcionado para o site do fornecedor oficial para concluir a compra com total segurança.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Os preços são mais caros por vossa causa?</h3>
+        <p>Não. O preço é o mesmo praticado pela loja oficial. Recebemos uma pequena comissão do vendedor por cada recomendação bem-sucedida, sem qualquer custo extra para si.</p>
     </div>
 </main>
 
@@ -57,29 +73,15 @@
     <div class="footer-container">
         <div class="footer-info">
             <h2 style="color: #40e0d0; margin-bottom: 20px;">Chipango World</h2>
-            <p><i class="fas fa-envelope"></i> chipangoworld@gmail.com</p>
-            <p style="margin-top: 15px;">
-                <a href="sobre.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px; margin-right: 15px;">Sobre Nós</a>
-                <a href="faqs.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px; margin-right: 15px;">FAQs</a>
-                <a href="legal.html" style="color: #40e0d0; text-decoration: underline; font-size: 14px;">Termos e Privacidade</a>
-            </p>
-            <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-                <p>&copy; 2026 Chipango World - Todos os direitos reservados.</p>
-                <p style="font-style: italic; margin-top: 5px; color: #40e0d0;">Seleção Exclusiva: Cada detalhe conta, cada escolha inspira.</p>
+            <div class="footer-links">
+                <a href="index.html">Início</a>
+                <a href="legal.html">Termos e Privacidade</a>
             </div>
-        </div>
-        <div class="footer-form">
-            <h3>Envie-nos uma mensagem</h3>
-            <form action="https://formspree.io/f/mpqjrwjz" method="POST">
-                <input type="text" name="Nome" placeholder="Seu Nome" required>
-                <input type="email" name="Email" placeholder="Seu E-mail" required>
-                <textarea name="Mensagem" placeholder="Como podemos ajudar?" required></textarea>
-                <button type="submit" class="btn-submit">Enviar Mensagem</button>
-            </form>
+            <p style="margin-top: 20px;">&copy; 2026 Chipango World - Todos os direitos reservados.</p>
         </div>
     </div>
-    <p class="footer-disclaimer">Aviso: Participamos em programas de afiliados. Ao efetuar compras através dos nossos links, podemos receber uma comissão sem qualquer custo adicional para si.</p>
 </footer>
+
 </body>
 </html>
 
